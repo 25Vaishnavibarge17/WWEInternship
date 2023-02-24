@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Body from "./body/body";
+import Footer from "./footer/footer";
+
+import Navbar from './components/Navbar';
+
+import Home from './components/pages/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Services from './components/pages/Services';
+import Products from './components/pages/Products';
+import ContactUs from './components/pages/ContactUs';
+import SignUp from './components/pages/SignUp';
+import Marketing from './components/pages/Marketing';
+import Consulting from './components/pages/Consulting';
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' exact component={Home} />
+        <Route path='/services' component={Services} />
+        <Route path='/products' component={Products} />
+        <Route path='/contact-us' component={ContactUs} />
+        <Route path='/sign-up' component={SignUp} />
+        <Route path='/marketing' component={Marketing} />
+        <Route path='/consulting' component={Consulting} />
+      </Routes>
+    </Router>
+     <Body/>
+     
+     <Footer/>
+     
     </div>
   );
+  
 }
 
 export default App;
